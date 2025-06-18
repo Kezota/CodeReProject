@@ -1,18 +1,25 @@
 package com.company;
-import java.util.Scanner;
 
+import java.util.Scanner;
 import com.company.Menu.MenuHandler;
 import com.company.util.Authenticator;
 
 public class Main {
+
     public static void main(String[] args) {
+        new Main().start();
+    }
+
+    private void start() {
         Scanner input = new Scanner(System.in);
+
         if (Authenticator.login(input)) {
             MenuHandler menu = new MenuHandler(input);
             menu.run();
         } else {
             System.out.println("***WRONG!!!!!!!USER NAME OR PASSWORD*****");
         }
+
         input.close();
     }
 }

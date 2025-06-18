@@ -1,4 +1,5 @@
 package com.company.Department;
+
 import java.util.Scanner;
 
 class Dep {
@@ -6,10 +7,18 @@ class Dep {
 
     public void Dep_Display() {
         int choice;
+
         do {
-            System.out.println("Departments:\n1.Cardiology\n2.Neurology\n3.Eye\n4.Dental\n5.Lab");
+            System.out.println("Departments:");
+            System.out.println("1. Cardiology");
+            System.out.println("2. Neurology");
+            System.out.println("3. Eye");
+            System.out.println("4. Dental");
+            System.out.println("5. Lab");
+
             System.out.print("Select Department: ");
             int option = input.nextInt();
+
             DepartmentData dept = DepartmentFactory.getDepartmentByOption(option);
 
             if (dept != null) {
@@ -21,15 +30,7 @@ class Dep {
 
             System.out.println("See another department? Press 1");
             choice = input.nextInt();
+
         } while (choice == 1);
     }
 }
-
-
-
-
-
-
-
-
-

@@ -12,6 +12,8 @@ public abstract class DepartmentData {
     }
 
     public abstract void dep_info();
+
     public abstract void Services_available();
-    public abstract String getPatientFilePath();  
+
+    public abstract String getPatientFilePath();
 }

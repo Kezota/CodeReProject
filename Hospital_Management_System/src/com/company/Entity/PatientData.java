@@ -1,29 +1,34 @@
 package com.company.Entity;
 
-public class PatientData extends Person{
-    private String Disease,Relative;
+public class PatientData extends Person {
+
+    private String disease;
+    private String relative;
+
     public String getDisease() {
-        return Disease;
+        return disease;
     }
 
     public void setDisease(String disease) {
-        this.Disease = disease;
+        this.disease = disease;
     }
+
     public String getRelative() {
-        return Relative;
+        return relative;
     }
 
     public void setRelative(String relative) {
-        this.Relative = relative;
+        this.relative = relative;
     }
+
     @Override
     public String toReportString() {
         return "Name: " + this.getName() +
-            "\nRelative's Name: " + this.getRelative() +
-            "\nAge: " + this.getAge() +
-            "\nGender: " + this.getGender() +
-            "\nDisease: " + this.getDisease() + 
-            "\n Department" + this.getDepartment() +
-            "\n";
+                "\nRelative's Name: " + this.getRelative() +
+                "\nAge: " + this.getAge() +
+                "\nGender: " + this.getGender() +
+                "\nDisease: " + this.getDisease() +
+                "\nDepartment: " + this.getDepartment() +
+                "\n";
     }
 }

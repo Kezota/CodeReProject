@@ -1,9 +1,12 @@
 package com.company.Entity;
 
 public abstract class Person {
-    private String name,department;
+
+    private String name;
+    private String department;
     private int age;
     private char gender;
+
     public String getName() {
         return name;
     }
@@ -19,7 +22,6 @@ public abstract class Person {
     public void setAge(int age) {
         this.age = age;
     }
-
 
     public char getGender() {
         return gender;

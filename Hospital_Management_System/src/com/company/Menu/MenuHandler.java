@@ -30,12 +30,14 @@ public class MenuHandler {
                 showMainMenu();
                 option = input.nextInt();
                 input.nextLine();
+
                 MenuAction action = actions.get(option);
                 if (action != null) {
                     action.execute();
                 } else {
                     System.out.println("Invalid option. Please choose 1, 2, or 3.");
                 }
+
                 System.out.println("Enter 1 to Exit, any other number to continue:");
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");

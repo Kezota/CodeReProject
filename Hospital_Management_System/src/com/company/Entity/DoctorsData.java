@@ -1,14 +1,16 @@
 package com.company.Entity;
 
-public class DoctorsData extends Person{
-    private String Special,workingHours;
-    private double CNIC;
+public class DoctorsData extends Person {
+    private String special;
+    private String workingHours;
+    private double cnic;
+
     public String getSpecial() {
-        return Special;
+        return special;
     }
 
     public void setSpecial(String special) {
-        this.Special = special;
+        this.special = special;
     }
 
     public String getWorkingHours() {
@@ -20,22 +22,22 @@ public class DoctorsData extends Person{
     }
 
     public double getCNIC() {
-        return CNIC;
+        return cnic;
     }
 
-    public void setCNIC(double CNIC) {
-        this.CNIC = CNIC;
+    public void setCNIC(double cnic) {
+        this.cnic = cnic;
     }
+
     @Override
     public String toReportString() {
         return "Name: " + this.getName() +
-            "\n CNIC: " + this.getCNIC() + 
-            "\nAge: " + this.getAge() +
-            "\nGender: " + this.getGender() +
-            "\nWorking Hours: " + this.getWorkingHours() +
-            "\nSpecialization: " + this.getSpecial() +
-            "\n Department" + this.getDepartment() +
-            "\n";
+                "\nCNIC: " + this.getCNIC() +
+                "\nAge: " + this.getAge() +
+                "\nGender: " + this.getGender() +
+                "\nWorking Hours: " + this.getWorkingHours() +
+                "\nSpecialization: " + this.getSpecial() +
+                "\nDepartment: " + this.getDepartment() +
+                "\n";
     }
 }
-
