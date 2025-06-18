@@ -96,14 +96,7 @@ class ICU_Dep extends Department{
         System.out.println("ICU or CCU include vey critical operations i-e:\nVentilator(lung Support)\nhemodylasis(Renal support)\nIntra-Aortic(cardiac support)");
     }
 }
-class OR extends Department{
-    public void dep_info() {
-        System.out.println("Here Surgical Operations are carried out");
-    }
-    public void Services_available() {
-        System.out.println("1.Eye surgery\t2.Heart Surgery etc");
-    }
-}
+
 class Lab extends Department{
     public void dep_info() {
         System.out.println("Tests are carried out to obtain info about the patient's health to aid in diagnosis,treatment or prevention of disease");

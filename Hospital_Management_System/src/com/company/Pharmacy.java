@@ -58,6 +58,7 @@ public class Pharmacy {
         }System.out.println("To Exit Pharmacy press 0");
         n=input.nextInt();
         }while(n!=0);
+        input.close();
     }
 }
 abstract class ADD_Medicine extends Pharmacy{
@@ -86,6 +87,7 @@ class Cardiac_med extends ADD_Medicine{
             System.out.println("Error ");
             e.printStackTrace();
         }
+        input.close();
     }
 
 }
@@ -109,6 +111,7 @@ class Neurology_med extends ADD_Medicine{
             System.out.println("Error ");
             e.printStackTrace();
         }
+        input.close();
     }
 }
 class Eye_med extends ADD_Medicine{
@@ -131,6 +134,7 @@ class Eye_med extends ADD_Medicine{
             System.out.println("Error ");
             e.printStackTrace();
         }
+        input.close();
     }
 }
 class Dental_med extends ADD_Medicine{
@@ -153,6 +157,7 @@ class Dental_med extends ADD_Medicine{
             System.out.println("Error ");
             e.printStackTrace();
         }
+        input.close();
     }
 
 }
@@ -161,63 +166,6 @@ class search_med extends Pharmacy{
     ArrayList<String> Neuro=new ArrayList<String>();
     ArrayList<String> Eye=new ArrayList<String>();
     ArrayList<String> Dental=new ArrayList<String>();
-    public void search(){
-        Med.add("Name\t\tCost\t\tExpiry Date\t\tUsed For:\t\n");
-        Med.add("Loprin\t500\t\t2/5/2023\tLowering Blood Pressures\n");
-        Med.add("Asprin\t400\t\t6/7/2034\tprevent blood clots\n");
-        Med.add("Statins\t300\t\t13/8/2034\tLower cholesterol levels\n");
-        try {
-            FileWriter g = new FileWriter("Cardiac_Medicines.txt",true);
-            g.write(String.valueOf(Med));
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-    }
-    public void Write_Neuro(){
-        Neuro.add("Name\t\tCost\t\tExpiry Date\t\tUsed For:\t\n");
-        Neuro.add("Diazepam\t\t500\t\t3/8/2022\t\tAnxiety\n");
-        Neuro.add("Atomoxetine\t\t300\t\t6/7/2029\t\tHyperActivity Diorder\n");
-        try {
-            FileWriter g = new FileWriter("Brain_Medicines.txt",true);
-            g.write(String.valueOf(Neuro));
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-    }
-    public void Write_Eye(){
-        Eye.add("Name\t\tCost\t\tExpiry Date\t\tUsed For:\t\n");
-        Eye.add("Acetylzolamide\t\t1000\t\t12/3/2029\t\tDry eyes\n");
-        Eye.add("Azelstine\t\t600\t\t3/5/2022\t\tAlergies\n");
-        try {
-            FileWriter g = new FileWriter("Eye_Medicines.txt",true);
-            g.write(String.valueOf(Eye));
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-    }
-    public void Write_Dental(){
-        Dental.add("Name\t\tCost\t\tExpiry Date\t\tUsed For:\t\n");
-        Dental.add("ibrufen\t\t400\t\t2/4/20222\n");
-        Dental.add("naproxen\t\t600\t\t6/8/2024\n");
-        try {
-            FileWriter g = new FileWriter("Dental_Medicines.txt",true);
-            g.write(String.valueOf(Dental));
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-    }
     public void search_heart(){
         try {
             File myObj=new File("Cardiac_Medicines.txt");
