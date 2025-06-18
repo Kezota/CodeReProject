@@ -1,6 +1,9 @@
 package com.company;
 import java.util.Scanner;
 
+import com.company.Menu.MenuHandler;
+import com.company.util.Authenticator;
+
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

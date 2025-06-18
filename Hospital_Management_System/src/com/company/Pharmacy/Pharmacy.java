@@ -1,10 +1,11 @@
-package com.company;
+package com.company.Pharmacy;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.company.util.FIleUtil;
+
 import java.io.File;
-import java.io.IOException;
 public class Pharmacy {
     public void display(){
         int c,a,n;
@@ -62,102 +63,95 @@ public class Pharmacy {
     }
 }
 abstract class ADD_Medicine extends Pharmacy{
-    String med_name,exp_date,used_for;
-    float cost;
+    private String med_name,exp_date,used_for;
+    private float cost;
+    public String getMed_name() {
+        return med_name;
+    }
+
+    public void setMed_name(String med_name) {
+        this.med_name = med_name;
+    }
+
+    public String getExp_date() {
+        return exp_date;
+    }
+
+    public void setExp_date(String exp_date) {
+        this.exp_date = exp_date;
+    }
+
+    public String getUsed_for() {
+        return used_for;
+    }
+
+    public void setUsed_for(String used_for) {
+        this.used_for = used_for;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+    public String getReport() {
+        return getMed_name() + "\t" + getCost() + "\t\t" + getExp_date() + "\t" + getUsed_for() + "\n";
+    }
+    
+    public void addMedicineToFile(String fileName) {
+        Scanner input = new Scanner(System.in);
+
+        // Get common inputs
+        System.out.println("Enter Medicine Name:");
+        setMed_name(input.next());
+
+        System.out.println("Cost:");
+        setCost(input.nextFloat());
+
+        System.out.println("Expiry Date:");
+        setExp_date(input.next());
+
+        System.out.println("Used for curing:");
+        setUsed_for(input.next());
+
+        try{
+            FIleUtil.writeToFile(fileName, getReport());
+            System.out.println("Written");
+        } catch (Exception e) {
+            System.out.println("Error");
+            e.printStackTrace();
+        }
+        input.close();
+    }
     public abstract void add();
 }
 class Cardiac_med extends ADD_Medicine{
 
-    public void add(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter Medicine Name:");
-        med_name=input.next();
-        System.out.println("Cost:");
-        cost=input.nextInt();
-        System.out.println("Expiry Date:\t");
-        exp_date=input.next();
-        System.out.println("Used for curing:");
-        used_for= input.next();
-        try {
-            FileWriter g = new FileWriter("Cardiac_Medicines.txt",true);
-            g.write(med_name+"\t"+cost+"\t\t"+exp_date+"\t"+used_for+"\n");
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-        input.close();
+    @Override
+    public void add() {
+        addMedicineToFile("Cardiac_Medicines.txt");
+        
     }
 
 }
 class Neurology_med extends ADD_Medicine{
-    public void add(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter Medicine Name:");
-        med_name=input.next();
-        System.out.println("Cost:");
-        cost=input.nextInt();
-        System.out.println("Expiry Date:\t");
-        exp_date=input.next();
-        System.out.println("Used for curing:");
-        used_for= input.next();
-        try {
-            FileWriter g = new FileWriter("Brain_Medicines.txt",true);
-            g.write(med_name+"\t"+cost+"\t\t"+exp_date+"\t"+used_for+"\n");
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-        input.close();
+    @Override
+    public void add() {
+        addMedicineToFile("Brain_Medicines.txt");
     }
 }
 class Eye_med extends ADD_Medicine{
-    public void add(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter Medicine Name:");
-        med_name=input.next();
-        System.out.println("Cost:");
-        cost=input.nextInt();
-        System.out.println("Expiry Date:\t");
-        exp_date=input.next();
-        System.out.println("Used for curing:");
-        used_for= input.next();
-        try {
-            FileWriter g = new FileWriter("Eye_Medicines.txt",true);
-            g.write(med_name+"\t"+cost+"\t\t"+exp_date+"\t"+used_for+"\n");
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-        input.close();
+    @Override
+    public void add() {
+        addMedicineToFile("Eye_Medicines.txt");
     }
 }
 class Dental_med extends ADD_Medicine{
-    public void add(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter Medicine Name:");
-        med_name=input.next();
-        System.out.println("Cost:");
-        cost=input.nextInt();
-        System.out.println("Expiry Date:\t");
-        exp_date=input.next();
-        System.out.println("Used for curing:");
-        used_for= input.next();
-        try {
-            FileWriter g = new FileWriter("Dental_Medicines.txt",true);
-            g.write(med_name+"\t"+cost+"\t\t"+exp_date+"\t"+used_for+"\n");
-            System.out.println("Written");
-            g.close();
-        } catch (IOException e) {
-            System.out.println("Error ");
-            e.printStackTrace();
-        }
-        input.close();
+    @Override
+    public void add() {
+        addMedicineToFile("Dental_Medicines.txt");
     }
 
 }

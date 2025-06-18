@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Entity;
 
 public class DoctorsData extends Person{
     private String Special,workingHours;

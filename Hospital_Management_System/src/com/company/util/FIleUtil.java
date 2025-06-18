@@ -1,4 +1,4 @@
-package com.company;
+package com.company.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -13,6 +13,7 @@ public class FIleUtil {
             writer.write(content);
             System.out.println("Written");
             writer.close();
+            return;
         } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();

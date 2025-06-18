@@ -1,8 +1,12 @@
-package com.company;
+package com.company.Menu;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import com.company.Admin.AdminAction;
+import com.company.Department.DepartmentAction;
+import com.company.Pharmacy.PharmacyAction;
 
 public class MenuHandler {
     private final Scanner input;
@@ -22,15 +26,22 @@ public class MenuHandler {
     public void run() {
         int option;
         do {
-            showMainMenu();
-            option = input.nextInt();
-            MenuAction action = actions.get(option);
-            if (action != null) {
-                action.execute();
-            } else {
-                System.out.println("Invalid option. Please choose 1, 2, or 3.");
+            try {
+                showMainMenu();
+                option = input.nextInt();
+                input.nextLine();
+                MenuAction action = actions.get(option);
+                if (action != null) {
+                    action.execute();
+                } else {
+                    System.out.println("Invalid option. Please choose 1, 2, or 3.");
+                }
+                System.out.println("Enter 1 to Exit, any other number to continue:");
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                input.nextLine();
+                option = -1;
             }
-            System.out.println("Enter 1 to Exit, any other number to continue:");
         } while (input.nextInt() != 1);
     }
 
