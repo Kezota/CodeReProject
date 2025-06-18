@@ -1,4 +1,5 @@
 package com.company.Admin;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.company.Entity.ADD_Doctor;
@@ -19,22 +20,17 @@ public class Admin {
     }
 
     private void handleOption(int option) {
-        switch (option) {
-            case 1 : 
-                p.ADD_Patient();
-                break;
-            case 2 : 
-                x.ViewPatient();
-                break;
-            case 3 :
-                d.Bio_Data();
-                break;
-            case 4 : 
-                v.display();
-                break;
-            default : 
-                System.out.println("Invalid option. Please choose 1 to 4.");
-                break;
+        Map<Integer, Runnable> actions = new java.util.HashMap<>();
+        actions.put(1, () -> p.ADD_Patient());
+        actions.put(2, () -> x.ViewPatient());
+        actions.put(3, () -> d.Bio_Data());
+        actions.put(4, () -> v.display());
+
+        Runnable action = actions.get(option);
+        if (action != null) {
+            action.run();
+        } else {
+            System.out.println("Invalid option. Please choose 1 to 4.");
         }
     }
 
