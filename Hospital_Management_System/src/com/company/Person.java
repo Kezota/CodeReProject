@@ -1,7 +1,7 @@
 package com.company;
 
 public abstract class Person {
-    private String name;
+    private String name,department;
     private int age;
     private char gender;
     public String getName() {
@@ -28,4 +28,14 @@ public abstract class Person {
     public void setGender(char gender) {
         this.gender = gender;
     }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public abstract String toReportString();
 }

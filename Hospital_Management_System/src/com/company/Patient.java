@@ -2,58 +2,53 @@ package com.company;
 import java.util.Scanner;
 public class Patient {
     private PatientData patients = new PatientData();
-    public void ADD_Patient(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter Name:");
-        patients.setName("Name " +input.nextLine());
-        input.nextLine();
-        
-        System.out.println("Enter Patient's Relative Name:");
-        patients.setRelative("Relative's Name " + input.nextLine());
-        
-        System.out.println("Enter Age:");
-        patients.setAge(input.nextInt());
-        input.nextLine();
-        
-        System.out.println("Gender (F/M):");
-        patients.setGender(input.next().charAt(0));
-        input.nextLine();
-        
-        System.out.println("Problem/Disease");
-        patients.setDisease(input.nextLine());
-        
-        int dep = 0;
-        System.out.println("Refer To Department\n1.Cardialogy\n2.Neurology\n3.Eye\n4.Dental\n5.Lab");
-        dep = input.nextInt();
-        String res = "Name " + patients.getName();
-        res += "Relative's Name " + patients.getRelative();
-        res += "\nGender: " + patients.getGender();
-        res += "\nDisease: " + patients.getDisease();
-        switch (dep){
+    
+    private void handleDepartment(int dep) {
+        switch (dep) {
             case 1:
-                res += "Department: Cardiology";
-                FIleUtil.writeToFile("Heart_Patients.txt", res);
+                patients.setDepartment("Cardiology");
+                FIleUtil.writeToFile("Heart_Patients.txt", patients.toReportString());
                 break;
             case 2:
-                res += "Department: Neurology";
-                FIleUtil.writeToFile("Brain_Patients.txt", res);
+                patients.setDepartment("Neurology");
+                FIleUtil.writeToFile("Brain_Patients.txt", patients.toReportString());
                 break;
             case 3:
-                res += "Department: Eye";
-                FIleUtil.writeToFile("Eye_Patients.txt", res);
+                patients.setDepartment("Eye");
+                FIleUtil.writeToFile("Eye_Patients.txt", patients.toReportString());
                 break;
             case 4:
-                res += "Department: Dental";
-                FIleUtil.writeToFile("Dental_Patients.txt", res);
+                patients.setDepartment("Dental");
+                FIleUtil.writeToFile("Dental_Patients.txt", patients.toReportString());
                 break;
             case 5:
-                res += "Department: Lab";
-                FIleUtil.writeToFile("Lab_Patients.txt", res);
+                patients.setDepartment("Lab");
+                FIleUtil.writeToFile("Lab_Patients.txt", patients.toReportString());
                 break;
             default:
                 System.out.println("Enter From 1,2,3,4 or 5");
                 break;
         }
+    }
+
+    public void ADD_Patient(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Name:");
+        patients.setName(input.nextLine());
+        System.out.println("Enter Patient's Relative Name:");
+        patients.setRelative(input.nextLine());
+        System.out.println("Enter Age:");
+        patients.setAge(input.nextInt());
+        input.nextLine();
+        System.out.println("Gender (F/M):");
+        patients.setGender(input.next().charAt(0));
+        input.nextLine();
+        System.out.println("Problem/Disease:");
+        patients.setDisease(input.nextLine());
+        System.out.println("Refer To Department\n1.Cardialogy\n2.Neurology\n3.Eye\n4.Dental\n5.Lab");
+        int dep = input.nextInt();
+        handleDepartment(dep);
+        input.close();
     }
 
 }

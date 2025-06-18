@@ -16,4 +16,14 @@ public class PatientData extends Person{
     public void setRelative(String relative) {
         this.Relative = relative;
     }
+    @Override
+    public String toReportString() {
+        return "Name: " + this.getName() +
+            "\nRelative's Name: " + this.getRelative() +
+            "\nAge: " + this.getAge() +
+            "\nGender: " + this.getGender() +
+            "\nDisease: " + this.getDisease() + 
+            "\n Department" + this.getDepartment() +
+            "\n";
+    }
 }

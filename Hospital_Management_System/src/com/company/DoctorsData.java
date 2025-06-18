@@ -26,4 +26,16 @@ public class DoctorsData extends Person{
     public void setCNIC(double CNIC) {
         this.CNIC = CNIC;
     }
+    @Override
+    public String toReportString() {
+        return "Name: " + this.getName() +
+            "\n CNIC: " + this.getCNIC() + 
+            "\nAge: " + this.getAge() +
+            "\nGender: " + this.getGender() +
+            "\nWorking Hours: " + this.getWorkingHours() +
+            "\nSpecialization: " + this.getSpecial() +
+            "\n Department" + this.getDepartment() +
+            "\n";
+    }
 }
+
